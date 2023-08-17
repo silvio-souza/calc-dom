@@ -10,13 +10,17 @@
     <main>
       <h1>Calculator</h1>
       <section class="box">
-        <input type="text" name="display" id="display" />
+        <p id="history"></p>
+        <input type="text" name="display" id="display" value="0" />
         <div class="buttons-array">
+          <div class="buttons-line">
+            <button class="operation-button" id="btn-clear">c</button>
+          </div>
           <div class="buttons-line">
             <button class="number-button" id="btn-7">7</button>
             <button class="number-button" id="btn-8">8</button>
             <button class="number-button" id="btn-9">9</button>
-            <button class="operation-button" id="btn-multi">*</button>
+            <button class="operation-button" id="btn-multi">x</button>
           </div>
           <div class="buttons-line">
             <button class="number-button" id="btn-4">4</button>
@@ -32,7 +36,7 @@
           </div>
           <div class="buttons-line">
             <button class="number-button" id="btn-0">0</button>
-            <button class="number-button"></button>
+            <button class="number-button" id="btn-dot">.</button>
             <button class="number-button" id="btn-equals">=</button>
             <button class="operation-button" id="btn-plus">+</button>
           </div>
