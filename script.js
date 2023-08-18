@@ -2,10 +2,9 @@ const displayEl = document.querySelector("#display");
 const historyEl = document.querySelector("#history");
 
 let firstSentence = false;
-let fullSentence = false;
 
-let firstNumber = 0;
-let secondNumber = 0;
+let firstNumber = "";
+let secondNumber = "";
 let operation = "";
 let result = 0;
 
@@ -39,8 +38,7 @@ const addFirstSentence = (operationChoosen) => {
     historyEl.innerText = `${firstNumber} ${operationChoosen}`;
     displayEl.value = "0";
     firstSentence = true;
-    fullSentence = false;
-  } else if (!fullSentence && displayEl.value == 0) {
+  } else if (displayEl.value == 0) {
     historyEl.innerText = `${firstNumber} ${operationChoosen}`;
     firstSentence = true;
   } else {
@@ -50,7 +48,7 @@ const addFirstSentence = (operationChoosen) => {
 
 const checkResult = (operationChoosen) => {
   secondNumber = parseFloat(displayEl.value);
-  historyEl.innerText = `${historyEl.innerText} ${secondNumber}`;
+  historyEl.innerText = `${firstNumber} ${operationChoosen} ${secondNumber}`;
   displayEl.value = 0;
   firstSentence = false;
 
@@ -68,10 +66,7 @@ const checkResult = (operationChoosen) => {
     historyEl.innerText = `${historyEl.innerText} = ${result}`;
   }
 
-  fullSentence = true;
-  firstNumber = 0;
-  secondNumber = 0;
-  operation = "";
+  reset();
 };
 
 const clearButton = () => {
@@ -84,10 +79,9 @@ const clearButton = () => {
 
 const reset = () => {
   firstSentence = false;
-  fullSentence = false;
 
-  firstNumber = 0;
-  secondNumber = 0;
+  firstNumber = "";
+  secondNumber = "";
   operation = "";
   result = 0;
 };
@@ -124,9 +118,6 @@ minusBtnEl.addEventListener("click", () => {
 });
 
 equalsBtnEl.addEventListener("click", () => {
-  if (fullSentence) {
-    historyEl.innerText = "";
-  }
   checkResult(operation);
 });
 
