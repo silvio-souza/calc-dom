@@ -7,6 +7,7 @@ let firstNumber = "";
 let secondNumber = "";
 let operation = "";
 let result = 0;
+let isFloat = false;
 
 // number buttons
 const numberBtns = [
@@ -38,6 +39,7 @@ const addFirstSentence = (operationChoosen) => {
     historyEl.innerText = `${firstNumber} ${operationChoosen}`;
     displayEl.value = "0";
     firstSentence = true;
+    isFloat = false;
   } else if (displayEl.value == 0) {
     historyEl.innerText = `${firstNumber} ${operationChoosen}`;
     firstSentence = true;
@@ -50,7 +52,6 @@ const checkResult = (operationChoosen) => {
   secondNumber = parseFloat(displayEl.value);
   historyEl.innerText = `${firstNumber} ${operationChoosen} ${secondNumber}`;
   displayEl.value = 0;
-  firstSentence = false;
 
   if (operationChoosen == "+") {
     result = firstNumber + secondNumber;
@@ -79,6 +80,7 @@ const clearButton = () => {
 
 const reset = () => {
   firstSentence = false;
+  isFloat = false;
 
   firstNumber = "";
   secondNumber = "";
@@ -89,7 +91,7 @@ const reset = () => {
 // add number to the display
 for (let i = 0; i < numberBtns.length; i++) {
   numberBtns[i].addEventListener("click", () => {
-    if (displayEl.value == 0) {
+    if (displayEl.value === "0") {
       displayEl.value = numberBtns[i].innerText;
     } else {
       displayEl.value += numberBtns[i].innerText;
@@ -119,6 +121,13 @@ minusBtnEl.addEventListener("click", () => {
 
 equalsBtnEl.addEventListener("click", () => {
   checkResult(operation);
+});
+
+dotBtnEl.addEventListener("click", () => {
+  if (!isFloat) {
+    isFloat = true;
+    displayEl.value = displayEl.value + ".";
+  }
 });
 
 clearBtnEl.addEventListener("click", clearButton);
