@@ -3,6 +3,8 @@ This project has a simple purpose of being a way to learn DOM in a Vanilla JavaS
 
 It has super simple logic and lacks validations for input and data treatment. But since that was not the objective of this I didn't bother taking too much time on those things.
 
+[Project Web Page](https://silvio-souza.github.io/calc-dom/)
+
 ## Simple operations
 It does simple operations using the buttons provided.
 But be carefull with the float number. Vanilla JS doesn't deal very good with those 😅
