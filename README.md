@@ -11,4 +11,4 @@ But be carefull with the float number. Vanilla JS doesn't deal very good with th
 
 <p align="center">
   <img src="https://github.com/silvio-souza/calc-dom/assets/19346642/dfe923b0-e53c-4792-be9e-9644e17f17c7"/>
-</p>
+</p> 
